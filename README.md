@@ -36,6 +36,6 @@ Unity、虚幻或网页游戏只需：在角色创建时初始化、在游戏事
 
 - TypeScript 核心：运行 `npm run test`。
 - Unreal Engine 5.7：已真实编译；自动化测试 `MyAiTown.AffectCore` 已通过，覆盖核心语义投影和 Actor 标签自动接入。
-- Unity：包含 Unity Test Runner 测试源文件；本次验证机器未安装 Unity Editor，因此尚未在真实 Editor 中执行，公开发布时应如实保留这一边界。
+- Unity：含 Unity Test Runner 测试源文件；本次验证机器未安装 Unity Editor，因此尚未在真实 Editor 中执行。
 
 本项目采用 [MIT License](LICENSE)。版本变更见 [CHANGELOG.md](CHANGELOG.md)。构建与测试需要 TypeScript：`npm run test`。
