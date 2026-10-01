@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://my-ai-town.local/schemas/affect-core-v1.json",
+  "title": "Affect Core v1 snapshot and update contract",
+  "oneOf": [{ "$ref": "#/$defs/update" }, { "$ref": "#/$defs/snapshot" }],
+  "$defs": {
+    "sourceKind": { "enum": ["conversation_reply", "social_event", "conflict_event", "environment_event", "agent_judgment", "system"] },
+    "changes": { "type": "object", "minProperties": 1, "additionalProperties": false, "properties": { "valenceDelta": { "type": "integer" }, "arousalDelta": { "type": "integer" } } },
+    "update": { "type": "object", "required": ["updateId", "characterId", "sourceKind", "occurredAtMinute", "changes"], "additionalProperties": false, "properties": { "updateId": { "type": "string", "minLength": 1 }, "characterId": { "type": "string", "minLength": 1 }, "sourceKind": { "$ref": "#/$defs/sourceKind" }, "occurredAtMinute": { "type": "integer", "minimum": 0 }, "causeEventId": { "type": "string" }, "expectedRevision": { "type": "integer", "minimum": 0 }, "changes": { "$ref": "#/$defs/changes" } } },
+    "state": { "type": "object", "required": ["characterId", "valence", "arousal", "baselineValence", "baselineArousal", "lastCauseEventId", "lastSourceKind", "lastEventAtMinute", "lastDecayAtMinute", "lastChangedAtMinute", "revision", "processedUpdateIds"], "additionalProperties": false, "properties": { "characterId": { "type": "string", "minLength": 1 }, "valence": { "type": "integer", "minimum": -100, "maximum": 100 }, "arousal": { "type": "integer", "minimum": 0, "maximum": 100 }, "baselineValence": { "type": "integer", "minimum": -100, "maximum": 100 }, "baselineArousal": { "type": "integer", "minimum": 0, "maximum": 100 }, "dominantCauseEventId": { "type": "string", "deprecated": true }, "lastCauseEventId": { "type": "string" }, "lastSourceKind": { "oneOf": [{ "$ref": "#/$defs/sourceKind" }, { "const": "none" }] }, "lastEventAtMinute": { "type": "integer", "minimum": 0 }, "lastDecayAtMinute": { "type": "integer", "minimum": 0 }, "lastChangedAtMinute": { "type": "integer", "minimum": 0 }, "revision": { "type": "integer", "minimum": 0 }, "processedUpdateIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true } } },
+    "snapshot": { "type": "object", "required": ["schemaVersion", "characters"], "additionalProperties": false, "properties": { "schemaVersion": { "const": 1 }, "characters": { "type": "object", "additionalProperties": { "$ref": "#/$defs/state" } } } }
+  }
+}

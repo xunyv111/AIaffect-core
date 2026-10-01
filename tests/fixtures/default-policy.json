@@ -1,0 +1,8 @@
+{
+  "valenceBounds": [-100, 100],
+  "arousalBounds": [0, 100],
+  "sourceCaps": { "conversation_reply": { "valence": 5, "arousal": 6 }, "social_event": { "valence": 10, "arousal": 12 }, "conflict_event": { "valence": 20, "arousal": 20 }, "environment_event": { "valence": 8, "arousal": 10 }, "agent_judgment": { "valence": 15, "arousal": 15 }, "system": { "valence": 100, "arousal": 100 } },
+  "decay": { "intervalMinutes": 60, "valencePerInterval": 2, "arousalPerInterval": 4 },
+  "presentation": { "distressedAt": -50, "unhappyAt": -15, "positiveAt": 15, "delightedAt": 50, "calmBelow": 30, "tenseAbove": 65 },
+  "processedUpdateIdLimit": 256
+}

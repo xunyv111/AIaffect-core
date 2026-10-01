@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://my-ai-town.local/schemas/affect-policy-v1.json",
+  "title": "Affect Policy v1",
+  "type": "object",
+  "required": ["valenceBounds", "arousalBounds", "sourceCaps", "decay", "presentation", "processedUpdateIdLimit"],
+  "additionalProperties": false,
+  "properties": {
+    "valenceBounds": { "type": "array", "prefixItems": [{ "type": "integer" }, { "type": "integer" }], "minItems": 2, "maxItems": 2 },
+    "arousalBounds": { "type": "array", "prefixItems": [{ "type": "integer" }, { "type": "integer" }], "minItems": 2, "maxItems": 2 },
+    "sourceCaps": { "type": "object", "propertyNames": { "enum": ["conversation_reply", "social_event", "conflict_event", "environment_event", "agent_judgment", "system"] }, "required": ["conversation_reply", "social_event", "conflict_event", "environment_event", "agent_judgment", "system"], "additionalProperties": false, "patternProperties": { "^(conversation_reply|social_event|conflict_event|environment_event|agent_judgment|system)$": { "type": "object", "additionalProperties": false, "required": ["valence", "arousal"], "properties": { "valence": { "type": "integer", "minimum": 1 }, "arousal": { "type": "integer", "minimum": 1 } } } } },
+    "decay": { "type": "object", "additionalProperties": false, "required": ["intervalMinutes", "valencePerInterval", "arousalPerInterval"], "properties": { "intervalMinutes": { "type": "integer", "minimum": 1 }, "valencePerInterval": { "type": "integer", "minimum": 1 }, "arousalPerInterval": { "type": "integer", "minimum": 1 } } },
+    "presentation": { "type": "object", "additionalProperties": false, "required": ["distressedAt", "unhappyAt", "positiveAt", "delightedAt", "calmBelow", "tenseAbove"], "properties": { "distressedAt": { "type": "integer" }, "unhappyAt": { "type": "integer" }, "positiveAt": { "type": "integer" }, "delightedAt": { "type": "integer" }, "calmBelow": { "type": "integer" }, "tenseAbove": { "type": "integer" } } },
+    "processedUpdateIdLimit": { "type": "integer", "minimum": -1 }
+  }
+}

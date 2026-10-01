@@ -1,0 +1,24 @@
+{
+  "name": "@my-ai-town/affect-core",
+  "version": "0.1.0-beta.2",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "description": "Engine-neutral bounded affect state runtime.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "schema", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test tests/affect-core.test.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

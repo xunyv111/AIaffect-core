@@ -1,0 +1,18 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0-beta.2",
+  "FriendlyName": "My AI Town Affect Core",
+  "Description": "Deterministic, bounded affect state with semantic presentation labels.",
+  "Category": "AI",
+  "CreatedBy": "my_ai_town contributors",
+  "CanContainContent": false,
+  "IsBetaVersion": true,
+  "Modules": [
+    {
+      "Name": "MyAiTownAffectCore",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}

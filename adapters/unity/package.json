@@ -1,0 +1,12 @@
+{
+  "name": "com.my-ai-town.affect-core",
+  "version": "0.1.0-beta.2",
+  "displayName": "My AI Town Affect Core",
+  "description": "A deterministic, bounded affect-state runtime for Unity projects.",
+  "unity": "2021.3",
+  "type": "library",
+  "keywords": ["ai", "affect", "emotion", "state"],
+  "author": {
+    "name": "my_ai_town contributors"
+  }
+}

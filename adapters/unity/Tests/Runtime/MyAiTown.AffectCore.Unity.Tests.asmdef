@@ -1,0 +1,15 @@
+{
+  "name": "MyAiTown.AffectCore.Unity.Tests",
+  "rootNamespace": "MyAiTown.AffectCore.Tests",
+  "references": ["MyAiTown.AffectCore.Unity"],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": ["TestAssemblies"]
+}
